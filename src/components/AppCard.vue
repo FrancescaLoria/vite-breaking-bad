@@ -1,14 +1,15 @@
 <script>
 export default {
   name: "AppCard",
+  props: { img: String, title: String, type: String },
 };
 </script>
 
 <template>
   <div class="ms_card text-center">
-    <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="" />
-    <div class="name">TITOLO CARTA</div>
-    <div class="type">TIPO DI CARTA</div>
+    <img :src="img" :alt="title" />
+    <div class="name">{{ title }}</div>
+    <div class="type">{{ type }}</div>
   </div>
 </template>
 
