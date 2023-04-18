@@ -21,12 +21,27 @@ export default {
         this.cardsArray = myData;
       });
   },
+  methods: {
+    handleFilter(type) {
+      let myUrl =
+        "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0";
+      if (type !== "All") {
+        myUrl =
+          "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=" +
+          type;
+      }
+      axios.get(myUrl).then((resp) => {
+        const myData = resp.data.data;
+        this.cardsArray = myData;
+      });
+    },
+  },
 };
 </script>
 
 <template>
   <main class="pt-4">
-    <SearchBar />
+    <SearchBar @filterCard="handleFilter" />
     <div class="container">
       <div class="card-container pt-5">
         <div class="card-number">
