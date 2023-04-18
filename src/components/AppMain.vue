@@ -1,6 +1,7 @@
 <script>
 import AppCard from "./AppCard.vue";
 import axios from "axios";
+import SearchBar from "./SearchBar.vue";
 export default {
   name: "AppMain",
   data() {
@@ -10,6 +11,7 @@ export default {
   },
   components: {
     AppCard,
+    SearchBar,
   },
   beforeCreate() {
     axios
@@ -23,7 +25,8 @@ export default {
 </script>
 
 <template>
-  <main class="pt-5">
+  <main class="pt-4">
+    <SearchBar />
     <div class="container">
       <div class="card-container pt-5">
         <div class="card-number">
